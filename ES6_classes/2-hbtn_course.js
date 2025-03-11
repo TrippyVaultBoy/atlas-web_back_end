@@ -12,7 +12,7 @@ export default class HolbertonCourse {
       throw new TypeError('Students mus be an array');
     }
 
-    if (!students.every(item => typeof item === 'string')) {
+    if (!students.every((item) => typeof item === 'string')) {
       throw new TypeError('Every elements of Students muste be a string');
     }
 
@@ -55,7 +55,7 @@ export default class HolbertonCourse {
       throw new TypeError('Students mus be an array');
     }
 
-    if (!value.every(item => typeof item === 'string')) {
+    if (!value.every((item) => typeof item === 'string')) {
       throw new TypeError('Every elements of Students muste be a string');
     }
     this._students = value;
