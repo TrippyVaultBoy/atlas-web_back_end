@@ -30,7 +30,7 @@ export default class HolbertonCourse {
     if (typeof value !== 'string') {
       throw new TypeError('Name must be a string');
     }
-    this._name = value
+    this._name = value;
   }
 
   // length getter and setter
@@ -42,7 +42,7 @@ export default class HolbertonCourse {
     if (typeof value !== 'number') {
       throw new TypeError('Length must be a number');
     }
-    this._length = value
+    this._length = value;
   }
 
   // students getter and setter
@@ -58,6 +58,6 @@ export default class HolbertonCourse {
     if (!value.every(item => typeof item === 'string')) {
       throw new TypeError('Every elements of Students muste be a string');
     }
-    this._students = value
+    this._students = value;
   }
 }
