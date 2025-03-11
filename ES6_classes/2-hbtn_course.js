@@ -1,19 +1,19 @@
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    if (typeof name !== "string") {
-        throw new TypeError("Name must be a string");
+    if (typeof name !== 'string') {
+      throw new TypeError('Name must be a string');
     }
 
-    if (typeof length !== "number") {
-        throw new TypeError("Length must be a number");
+    if (typeof length !== 'number') {
+      throw new TypeError('Length must be a number');
     }
 
     if (!Array.isArray(students)) {
-        throw new TypeError("Students mus be an array");
+      throw new TypeError('Students mus be an array');
     }
 
-    if (!students.every(item => typeof item === "string")) {
-        throw new TypeError("Every elements of Students muste be a string");
+    if (!students.every(item => typeof item === 'string')) {
+      throw new TypeError('Every elements of Students muste be a string');
     }
 
     this._name = name;
@@ -27,8 +27,8 @@ export default class HolbertonCourse {
   }
 
   set name(value) {
-    if (typeof value !== "string") {
-        throw new TypeError("Name must be a string");
+    if (typeof value !== 'string') {
+      throw new TypeError('Name must be a string');
     }
     this._name = value
   }
@@ -39,8 +39,8 @@ export default class HolbertonCourse {
   }
 
   set length(value) {
-    if (typeof value !== "number") {
-        throw new TypeError("Length must be a number");
+    if (typeof value !== 'number') {
+      throw new TypeError('Length must be a number');
     }
     this._length = value
   }
@@ -52,11 +52,11 @@ export default class HolbertonCourse {
 
   set students(value) {
     if (!Array.isArray(value)) {
-        throw new TypeError("Students mus be an array");
+      throw new TypeError('Students mus be an array');
     }
 
-    if (!value.every(item => typeof item === "string")) {
-        throw new TypeError("Every elements of Students muste be a string");
+    if (!value.every(item => typeof item === 'string')) {
+      throw new TypeError('Every elements of Students muste be a string');
     }
     this._students = value
   }
