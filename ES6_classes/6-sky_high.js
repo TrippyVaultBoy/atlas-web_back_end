@@ -10,7 +10,7 @@ export default class SkyHighBuilding extends Building {
   }
 
   evacuationWarningMessage() {
-    return `Evacuate slowly the ${self._floors} floors`;
+    return `Evacuate slowly the ${this._floors} floors`;
   }
 
   // sqft getter and setter
@@ -24,13 +24,13 @@ export default class SkyHighBuilding extends Building {
 
   // floors getter and setter
   get floors() {
-    return self._floors;
+    return this._floors;
   }
 
   set floors(value) {
     if (typeof floors !== 'number') {
       throw new TypeError('Floors must be a number');
     }
-    self._floors = value;
+    this._floors = value;
   }
 }
