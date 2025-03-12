@@ -15,5 +15,5 @@ getListStudents() {
       firstName: 'Serena',
       location: 'San Francisco',
     },
-  ]
-};
+  ];
+}
