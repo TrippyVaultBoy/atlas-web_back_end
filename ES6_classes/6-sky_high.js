@@ -1,6 +1,6 @@
 import Building from './5-building'
 
-class SkyHighBuilding extends Building {
+export default class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
     if (typeof floors !== 'number') {
       throw new TypeError('Floors must be a number');
