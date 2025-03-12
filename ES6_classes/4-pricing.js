@@ -31,14 +31,14 @@ export default class Pricing {
   }
 
   set currency(value) {
-    if (!(currency instanceof Currency)) {
+    if (!(value instanceof Currency)) {
       TypeError('Currency must be a currency');
     }
     this._currency = value;
   }
 
   displayFullPrice() {
-    return `${this._amount} ${this._currency.name} (${this._currency.code})`
+    return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
   static convertPrice(amount, conversionRate) {
