@@ -1,4 +1,4 @@
-export default function groceries_list() {
+export default function groceriesList() {
   const myMap = new Map();
 
   myMap.set('Apples', 10);
