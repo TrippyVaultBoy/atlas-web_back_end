@@ -9,6 +9,6 @@ returns the floor of the float.
 
 def floor(n: float) -> int:
     """
-    Floor function
+    Floor function returns int
     """
     return math.floor(n)
