@@ -7,7 +7,7 @@ returns the floor of the float.
 """
 
 
-def floor(n:float) -> int:
+def floor(n: float) -> int:
     """
     Floor function
     """
