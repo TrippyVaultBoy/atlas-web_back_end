@@ -12,9 +12,9 @@ def sum_list(input_list: list[float]) -> float:
     sum_list function
     """
 
-    sum: float = 0
+    total: float = 0.0
 
     for num in input_list:
-        sum += num
+        total += num
 
-    return (sum)
+    return total
