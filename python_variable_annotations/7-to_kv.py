@@ -15,5 +15,5 @@ def to_kv(k: str, v: Union[int, float]) -> tuple:
     to_kv tuple
     """
     squared: float = v * v
-    kv_tuple: float = (k, v)
+    kv_tuple: float = (k, squared)
     return kv_tuple
