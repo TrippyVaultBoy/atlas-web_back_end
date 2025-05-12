@@ -7,13 +7,12 @@ element of the tuple is the string k. The
 second element is the square of the int/float
 v and should be annotated as a float.
 """
-from typing import Union
+from typing import Union, Tuple
 
 
-def to_kv(k: str, v: Union[int, float]) -> tuple:
+def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     """
     to_kv tuple
     """
-    squared: float = v * v
-    kv_tuple: float = (k, squared)
-    return kv_tuple
+    squared: float = float(v * v)
+    return (k, squared)
