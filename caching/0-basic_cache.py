@@ -20,9 +20,10 @@ class BasicCache(BaseCaching):
         put Function
         """
         if (key == None or item == None):
-            pass
+            return
 
         self.cache_data[key] = item
+        return
 
     
     def get(self, key):
