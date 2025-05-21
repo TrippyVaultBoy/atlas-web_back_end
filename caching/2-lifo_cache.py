@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """
+Create a class LIFOCache that inherits
+from BaseCaching and is a caching system
 """
 
 from base_caching import BaseCaching
@@ -7,8 +9,7 @@ from base_caching import BaseCaching
 
 class LIFOCache(BaseCaching):
     """
-    Create a class LIFOCache that inherits
-    from BaseCaching and is a caching system
+    LIFO class
     """
 
     def __init__(self):
