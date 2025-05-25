@@ -6,7 +6,10 @@ from typing import List
 import re
 
 
-def filter_datum(fields: List[str], redaction: str, message: str, separator: str) -> str:
+def filter_datum(fields: List[str],
+                 redaction: str,
+                 message: str,
+                 separator: str) -> str:
     pattern = r'(' + '|'.join(fields) + r')=[^' + re.escape(separator) + r']*'
     masked = re.sub(pattern, lambda m: f"{m.group(1)}={redaction}", message)
     return masked
