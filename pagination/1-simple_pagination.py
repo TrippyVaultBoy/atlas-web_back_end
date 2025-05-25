@@ -13,6 +13,7 @@ def index_range(page: int, page_size: int) -> tuple:
     """
     index_range function
     """
+
     start = (page - 1) * page_size
     end = page * page_size
     return (start, end)
@@ -22,6 +23,7 @@ class Server:
     """
     Server class to paginate a database of popular baby names.
     """
+
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
@@ -40,6 +42,9 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+        get_page method
+        """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
 
