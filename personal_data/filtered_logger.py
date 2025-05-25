@@ -51,7 +51,6 @@ def get_logger() -> logging.Logger:
     get_logger function
     """
     logger = logging.getLogger('user_data')
-    logging.basicConfig(level=logging.INFO)
     logger.propagate = False
 
     logger.handlers = []
