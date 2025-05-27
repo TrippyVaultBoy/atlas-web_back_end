@@ -34,7 +34,7 @@ def unauthorized() -> None:
     abort(401)
 
 
-@app_views.route('/forbidden', method=['GET'], strict_slashes=False)
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
 def forbidden() -> None:
     """
     Raises 403 error
