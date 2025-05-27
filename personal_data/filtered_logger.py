@@ -13,6 +13,18 @@ from mysql.connector import Error
 PII_FIELDS = ("name", "email", "password", "phone", "ssn")
 
 
+"""
+service mariadb start
+cat main.sql | mariadb -uroot -p
+
+PERSONAL_DATA_DB_USERNAME=app_user
+PERSONAL_DATA_DB_PASSWORD=app_password
+PERSONAL_DATA_DB_HOST=localhost
+PERSONAL_DATA_DB_NAME=my_db
+./filtered_logger.py
+"""
+
+
 def main() -> None:
     """
     main function
@@ -100,15 +112,6 @@ def get_logger() -> logging.Logger:
     logger.addHandler(stream_handler)
 
     return logger
-
-
-"""
-PERSONAL_DATA_DB_USERNAME=app_user
-PERSONAL_DATA_DB_PASSWORD=app_password
-PERSONAL_DATA_DB_HOST=localhost
-PERSONAL_DATA_DB_NAME=my_db
-./main.py
-"""
 
 
 def get_db() -> mysql.connector.connection.MySQLConnection:
