@@ -13,6 +13,42 @@ from mysql.connector import Error
 PII_FIELDS = ("name", "email", "password", "phone", "ssn")
 
 
+def main() -> None:
+    """
+    main function
+    """
+
+    fields = PII_FIELDS
+    redaction = '***'
+    separator = ';'
+
+    connection = get_db()
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM users;")
+
+    column_names = []
+    for column_description in cursor.description:
+        column_name = column_description[0]
+        column_names.append(column_name)
+
+    for row in cursor:
+
+        key_value_pairs = []
+
+        for index in range(len(column_names)):
+            key = column_names[index]
+            value = row[index]
+            pair = f"{key}={value}"
+            key_value_pairs.append(pair)
+
+        formated_message = separator.join(key_value_pairs)
+
+        print(filter_datum(fields, redaction, formated_message, separator))
+
+    cursor.close()
+    connection.close()
+
+
 class RedactingFormatter(logging.Formatter):
     """ Redacting Formatter class
         """
@@ -96,3 +132,7 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     except Error as error:
         print(f"Connection failed: {error}")
         return None
+
+
+if __name__ == "__main__":
+    main()
