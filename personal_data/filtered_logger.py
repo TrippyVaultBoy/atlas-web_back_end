@@ -75,7 +75,7 @@ PERSONAL_DATA_DB_NAME=my_db
 """
 
 
-def get_db() -> mysql.connector:
+def get_db() -> mysql.connector.connection.MySQLConnection:
     """
     get_db method
     """
