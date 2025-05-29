@@ -37,7 +37,10 @@ def session_login():
     response.set_cookie(session_name, session_id)
     return response
 
-@app_views.route('/auth_session/logout', methods=['DELETE'], strict_slashes=False)
+
+@app_views.route('/auth_session/logout',
+                 methods=['DELETE'],
+                 strict_slashes=False)
 def session_logout():
     """
     session_logout method
