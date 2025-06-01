@@ -46,14 +46,7 @@ def add_item():
 
 @app.route('/api/items/<int:item_id>', methods=['DELETE'], strict_slashes=False)
 def delete_item(item_id):
-    for item in items:
-        if item['id'] == item_id:
-            item = item_id
-    if item is None:
-        return jsonify({"error": "Bad request"})
-    else:
-        del item
-        return True
+   pass 
 
 
 if __name__ == '__main__':
