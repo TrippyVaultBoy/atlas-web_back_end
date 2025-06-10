@@ -61,7 +61,7 @@ def replay(method: Callable) -> None:
     outputs = redis_client.lrange(output_key, 0, -1)
 
     for input_args, output in zip(inputs, outputs):
-        print(inspect.cleandoc(f"""{method_name}(*{input_args.decode('utf-8')}) 
+        print(inspect.cleandoc(f"""{method_name}(*{input_args.decode('utf-8')})
                                 -> {output.decode('utf-8')}"""))
 
 
@@ -72,7 +72,7 @@ class Cache():
 
     def __init__(self):
         self._redis = redis.Redis(host='localhost', port=6379, db=0)
-        
+
         self._redis.flushdb()
 
     @call_history
@@ -85,7 +85,9 @@ class Cache():
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Optional[Callable[[bytes], Any]] = None) -> Optional[Any]:
+    def get(self,
+            key: str,
+            fn: Optional[Callable[[bytes], Any]] = None) -> Optional[Any]:
         """
         get method
         """
@@ -96,13 +98,13 @@ class Cache():
         if fn:
             return fn(data)
         return data
-    
+
     def get_str(self, key: str) -> Optional[str]:
         """
         """
 
         return self.get(key, fn=lambda d: d.decode('utf-8'))
-    
+
     def get_int(self, key: str) -> Optional[int]:
         """
         """
