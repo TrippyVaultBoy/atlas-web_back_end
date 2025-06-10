@@ -19,7 +19,7 @@ def count_calls(method: Callable) -> Callable:
         return method(self, *args, **kwargs)
     return wrapper
 
-def call_history(self, method: Callable) -> Callable:
+def call_history(method: Callable) -> Callable:
     """
     call_history method
     """
