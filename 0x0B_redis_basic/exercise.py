@@ -61,8 +61,10 @@ def replay(method: Callable) -> None:
     outputs = redis_client.lrange(output_key, 0, -1)
 
     for input_args, output in zip(inputs, outputs):
-        print(inspect.cleandoc(f"""{method_name}(*{input_args.decode('utf-8')})
-                                -> {output.decode('utf-8')}"""))
+        print(
+            f"{method_name}(*{input_args.decode('utf-8')}) "
+            f"-> {output.decode('utf-8')}"
+        )
 
 
 class Cache():
