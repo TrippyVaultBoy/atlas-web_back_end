@@ -24,6 +24,7 @@ def call_history(self, method: Callable) -> Callable:
     call_history method
     """
 
+    @functools.wraps(method)
     def wrapper(self, *args, **kwargs):
         input_key = str(method + ':inputs')
         output_key = str(method + ':outputs')
