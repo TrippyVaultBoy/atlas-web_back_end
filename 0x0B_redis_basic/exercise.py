@@ -7,7 +7,7 @@ import uuid
 from typing import Union, Callable, Optional, Any
 import functools
 
-def count_calls(method: callable) -> callable:
+def count_calls(method: Callable) -> Callable:
     """
     count_calls method
     """
