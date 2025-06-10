@@ -6,6 +6,8 @@ import redis
 import uuid
 from typing import Union, Callable, Optional, Any
 import functools
+import inspect
+
 
 def count_calls(method: Callable) -> Callable:
     """
@@ -18,6 +20,7 @@ def count_calls(method: Callable) -> Callable:
         self._redis.incr(key)
         return method(self, *args, **kwargs)
     return wrapper
+
 
 def call_history(method: Callable) -> Callable:
     """
@@ -34,6 +37,7 @@ def call_history(method: Callable) -> Callable:
         self._redis.rpush(output_key, str(output))
         return output
     return wrapper
+
 
 def replay(method: Callable) -> None:
     """
@@ -57,7 +61,8 @@ def replay(method: Callable) -> None:
     outputs = redis_client.lrange(output_key, 0, -1)
 
     for input_args, output in zip(inputs, outputs):
-        print(f"{method_name}(*{input_args.decode('utf-8')}) -> {output.decode('utf-8')}")
+        print(inspect.cleandoc(f"""{method_name}(*{input_args.decode('utf-8')}) 
+                                -> {output.decode('utf-8')}"""))
 
 
 class Cache():
@@ -65,12 +70,11 @@ class Cache():
     Chache class
     """
 
-
     def __init__(self):
         self._redis = redis.Redis(host='localhost', port=6379, db=0)
         
         self._redis.flushdb()
-    
+
     @call_history
     @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
