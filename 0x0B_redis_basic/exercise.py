@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 create a Cache class and store method
 """
