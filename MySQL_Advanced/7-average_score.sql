@@ -10,7 +10,7 @@ BEGIN
 
     UPDATE users
     SET average_score = IFNULL(average_score, 0)
-    WHERE id = user_id
+    WHERE id = user_id;
 END$$
 
 DELIMITER ;
