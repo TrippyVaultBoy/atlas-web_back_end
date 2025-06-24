@@ -25,11 +25,11 @@ function countStudents(path) {
                 }
             })
             .on('end', () => {
-                console.log(`Number of students: ${total}`);
+                let output = `Number of students: ${total}\n`;
                 for (const [field, students] of Object.entries(studentsByField)) {
-                    console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
+                    output += `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}\n`;
                 }
-                resolve();
+                resolve(output);
             })
             .on('error', () => {
                 reject(new Error("Cannot load the database"))
